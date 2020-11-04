@@ -2,7 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\SensorGraphics;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -17,3 +17,8 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::get('/getSensorValorSem',[SensorGraphics::class, 'getSensorsValorbySensorIDSemana']);
+Route::get('/getSensorValorMen',[SensorGraphics::class, 'getSensorsValorbySensorIDMensual']);
+Route::get('/getSensorValorHora',[SensorGraphics::class, 'getSensorsValorbySensorIDHora']);
+Route::get('/getSensorValorDay',[SensorGraphics::class, 'getSensorsValorbySensorIDDay']);
